@@ -19,10 +19,11 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    needs: test
     steps:
     - uses: actions/checkout@v3
     - name: Build product_service image
-      run: docker build . --file product_service/Dockerfile --tag product-service:$(date +%s)
+      run: cd product_service && docker build . --file Dockerfile --tag product-service:$(date +%s)
     - name: Build product_review image
-      run: docker build . --file product_review/Dockerfile --tag product-service:$(date +%s)
+      run: cd product_review && docker build . --file Dockerfile --tag product-service:$(date +%s)
 
