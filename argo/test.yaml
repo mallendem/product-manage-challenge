@@ -5,10 +5,16 @@ metadata:
   namespace: adidas
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: echoserver
   template:
     metadata:
       labels:
         app: echoserver
+    selector:
+      matchLabels:
+        app.kubernetes.io/name: echoserver
     spec:
       containers:
       - image: gcr.io/google_containers/echoserver:1.0
