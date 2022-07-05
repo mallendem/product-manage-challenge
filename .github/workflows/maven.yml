@@ -25,5 +25,5 @@ jobs:
     - name: Build product_service image
       run: cd product_service && docker build . --file Dockerfile --tag product-service:$(date +%s)
     - name: Build product_review image
-      run: cd product_review && docker build . --file Dockerfile --tag product-service:$(date +%s)
+      run: echo product_review #cd product_review && docker build . --file Dockerfile --tag product-service:$(date +%s)
 
