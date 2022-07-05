@@ -52,6 +52,7 @@ jobs:
       with:
         context: "./product_service/"
         push: true
-        tags: type=edge,branch=main
+        tags: |
+          type=edge,branch=main
         labels: ${{ steps.meta.outputs.labels }}
 
