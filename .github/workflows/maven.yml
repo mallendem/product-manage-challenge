@@ -58,3 +58,12 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
 
+    - name: Update Image Version
+      id: imgupd
+      uses: mikefarah/yq@master
+      with:
+        cmd: yq eval '.spec.template.spec.containers[0].image = "${{ steps.meta.outputs.tags }}"' -i argo/rollout.yaml
+      
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply image name changes
