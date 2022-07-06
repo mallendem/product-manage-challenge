@@ -49,6 +49,9 @@ spec:
         - name: product-service
           image: migueallende/product-service:sha-6a7f1b1
           imagePullPolicy: Always
+          env:
+            - name: REVIEW_SERVICE_URL
+              value: http://product-review.adidas.svc.cluster.local:8081
           ports:
             - name: web
               containerPort: 8080
