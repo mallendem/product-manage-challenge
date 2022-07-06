@@ -25,7 +25,8 @@ spec:
   gateways:
     - product-service-gateway
   http:
-  - route:
+  - name: primary
+    route:
     - destination:
         host: helloworld.default.svc.cluster.local
         subset: v1
