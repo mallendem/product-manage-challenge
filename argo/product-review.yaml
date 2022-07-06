@@ -13,7 +13,7 @@ spec:
         app: product-review
     spec:
       containers:
-      - image: nginx:latest
+      - image: migueallende/product-review:latest
         name: product-review
         ports:
         - containerPort: 8082
