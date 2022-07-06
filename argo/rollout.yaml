@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: migueallende/product-service:sha-b0385cf
+          image: migueallende/product-service:sha-947bcd4
           imagePullPolicy: Always
           ports:
             - name: web
