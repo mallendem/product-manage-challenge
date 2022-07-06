@@ -28,10 +28,10 @@ spec:
   - name: primary
     route:
     - destination:
-        host: product-service.svc.cluster.local
+        host: product-service.adidas.svc.cluster.local
       weight: 100
     - destination:
-        host: product-service-canary.svc.cluster.local
+        host: product-service-canary.adidas.svc.cluster.local
       weight: 0
 ---
 apiVersion: networking.istio.io/v1alpha3
