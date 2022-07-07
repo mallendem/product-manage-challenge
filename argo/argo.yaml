@@ -72,7 +72,7 @@ spec:
       metricName: istio-requests-total
       target:
         apiVersion: v1
-        kind: Rollout 
+        kind: Pod 
         name: product-service
       targetValue: 200
 
