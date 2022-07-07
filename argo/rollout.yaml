@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: migueallende/product-service:sha-d05b972
+          image: migueallende/product-service:sha-8e8e179
           imagePullPolicy: Always
           env:
             - name: REVIEW_SERVICE_URL
