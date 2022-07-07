@@ -65,12 +65,7 @@ spec:
     name: product-service
   #targetCPUUtilizationPercentage: 80
   metrics:
-  - type: Object
-    object:
+  - type: Pods
+    pods:
       metricName: istio_requests
-      target:
-        apiVersion: v1
-        kind: Pod 
-        name: product-service
       targetValue: 200
-
