@@ -55,6 +55,9 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: product-service-hpa-rollout
   namespace: adidas
+annotations:
+  metric-config.object.istio-requests-total.prometheus/per-replica: "true"
+  metric-config.object.istio-requests-total.prometheus/query: (sum(irate(istio_requests_total{destination_workload_namespace="adidas",destination_app="product-service"}[1m])))/(count(container_memory_usage_bytes{pod=~"product-service.*"})/4)
 spec:
   maxReplicas: 6
   minReplicas: 2
@@ -62,4 +65,13 @@ spec:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
     name: product-service
-  targetCPUUtilizationPercentage: 80
+  #targetCPUUtilizationPercentage: 80
+  metrics:
+  - type: Object
+    object:
+      metricName: istio-requests-total
+      target:
+        apiVersion: v1
+        kind: Pod
+        name: podinfo
+      targetValue: 200
