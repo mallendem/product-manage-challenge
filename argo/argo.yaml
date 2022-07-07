@@ -50,7 +50,7 @@ spec:
             istio_requests_total{reporter="source",destination_service=~"{{args.service-name}}"}[1m]
           ))
 ---
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: product-service-hpa-rollout
@@ -67,5 +67,8 @@ spec:
   metrics:
   - type: Pods
     pods:
-      metricName: istio_requests
-      targetValue: 200
+      metric:
+        name: istio_requests
+      target:
+        type: AverageValue
+        averageValue: 200
