@@ -17,7 +17,7 @@ spec:
         args:
           - name: service-name
             # name of the canary service (used in prometheus to find the correct metrics)
-            value: product-service-canary.default.svc.cluster.local
+            value: product-service-canary.adidas.svc.cluster.local
       steps:
         - setWeight: 20
         - pause:
